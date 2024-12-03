@@ -21,4 +21,135 @@
             text-align: center;
         }
         nav {
-            background
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 10px 0;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        .container {
+            padding: 20px;
+        }
+        .menu-item {
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin: 10px 0;
+            background: white;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .menu-item h3 {
+            margin: 0;
+        }
+        .menu-item button {
+            background: #ffcc00;
+            color: #333;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background: #333;
+            color: white;
+            margin-top: 20px;
+        }
+
+        /* Ventana emergente */
+        .popup {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.7);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 10;
+            display: none;
+        }
+        .popup-content {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        .popup button {
+            background: #333;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Mimosas CDMX</h1>
+    </header>
+    <nav>
+        <a href="#nosotros">Nosotros</a>
+        <a href="#menu">Menú</a>
+        <a href="#contacto">Contacto</a>
+    </nav>
+    <div class="container">
+        <section id="nosotros">
+            <h2>Nosotros</h2>
+            <p>Somos un restaurante comprometido con ofrecer los mejores platillos en un ambiente acogedor. Contamos con opciones vegetarianas y un excelente servicio al aire libre.</p>
+        </section>
+        <section id="menu">
+            <h2>Menú</h2>
+            <div class="menu-item">
+                <h3>Tacos al Pastor</h3>
+                <button onclick="showPopup('Tacos al Pastor', 'Deliciosos tacos con carne marinada, piña y salsa.')">Ver descripción</button>
+            </div>
+            <div class="menu-item">
+                <h3>Ensalada César</h3>
+                <button onclick="showPopup('Ensalada César', 'Ensalada fresca con aderezo casero y crutones.')">Ver descripción</button>
+            </div>
+            <div class="menu-item">
+                <h3>Mimosas Especiales</h3>
+                <button onclick="showPopup('Mimosas Especiales', 'Nuestra selección de mimosas con sabores únicos.')">Ver descripción</button>
+            </div>
+        </section>
+        <section id="contacto">
+            <h2>Contacto</h2>
+            <p>📍 Dirección: Cumbres de Maltrata #390 local E, esquina con C. Mitla, Narvarte Oriente, 03020 Ciudad de México</p>
+            <p>📞 Teléfono: <a href="tel:5625903499">56 2590 3499</a></p>
+            <p>📄 <a href="https://8061fd3b-82b9-450a-b730-7eddb3ab93c0.filesusr.com">Descargar Menú</a></p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2024 Mimosas CDMX - Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Ventana emergente -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <h2 id="popup-title"></h2>
+            <p id="popup-description"></p>
+            <button onclick="closePopup()">Cerrar</button>
+        </div>
+    </div>
+
+    <script>
+        function showPopup(title, description) {
+            document.getElementById('popup-title').innerText = title;
+            document.getElementById('popup-description').innerText = description;
+            document.getElementById('popup').style.display = 'flex';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
